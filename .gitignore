@@ -39,7 +39,6 @@ htmlcov/
 .tox/
 
 # CI/CD
-.github/
 act_result/
 
 # Security
