@@ -1,0 +1,35 @@
+{
+  "baseline_id": "ci-pipeline-v1",
+  "url": "file://D:/ai/ci-pipeline",
+  "timestamp": "2026-03-16T14:46:00Z",
+  "runs": 1,
+  "metrics": {
+    "ci_duration_seconds": {
+      "p50": 300,
+      "p75": 420,
+      "p95": 600
+    },
+    "test_duration_seconds": {
+      "p50": 120,
+      "p75": 180,
+      "p95": 240
+    },
+    "build_duration_seconds": {
+      "p50": 60,
+      "p75": 90,
+      "p95": 120
+    },
+    "security_scan_duration_seconds": {
+      "p50": 30,
+      "p75": 45,
+      "p95": 60
+    },
+    "total_jobs": 9,
+    "expected_success_rate": 0.95,
+    "expected_test_coverage": 0.80
+  },
+  "collector": {
+    "tool": "github-actions",
+    "location": "D:/ai/ci-pipeline/.github/workflows"
+  }
+}

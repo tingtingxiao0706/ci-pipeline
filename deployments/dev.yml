@@ -1,0 +1,6 @@
+# Development environment configuration
+environment: dev
+server: dev-user@dev.example.com
+deploy_dir: /opt/ci-pipeline
+docker_compose: true
+health_check_url: http://dev.example.com:8080/health

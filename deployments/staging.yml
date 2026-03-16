@@ -1,0 +1,6 @@
+# Staging environment configuration
+environment: staging
+server: staging-user@staging.example.com
+deploy_dir: /opt/ci-pipeline
+docker_compose: true
+health_check_url: http://staging.example.com/health

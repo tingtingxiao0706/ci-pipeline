@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      cache_from:
+        - docker.io/${DOCKER_USERNAME}/${DOCKER_IMAGE_NAME}:latest
+        - docker.io/${DOCKER_USERNAME}/${DOCKER_IMAGE_NAME}:dev-latest
+        - docker.io/${DOCKER_USERNAME}/${DOCKER_IMAGE_NAME}:staging-latest
+    image: docker.io/${DOCKER_USERNAME}/${DOCKER_IMAGE_NAME}:latest
+    container_name: ${APP_NAME:-ci-pipeline}
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_URL=${DATABASE_URL:-postgresql://user:password@localhost:5432/appdb}
+      - SECRET_KEY=${SECRET_KEY:-dev-secret-key-change-in-production}
+      - DEBUG=${DEBUG:-false}
+      - PYTHONUNBUFFERED=1
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

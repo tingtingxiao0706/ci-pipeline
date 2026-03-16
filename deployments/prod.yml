@@ -1,0 +1,7 @@
+# Production environment configuration
+environment: prod
+server: prod-user@prod.example.com
+deploy_dir: /opt/ci-pipeline
+docker_compose: true
+health_check_url: http://prod.example.com/health
+maintenance_mode: true

@@ -1,0 +1,41 @@
+---
+# CI Pipeline - Act Configuration
+# https://github.com/nektos/act
+
+# 使用 GitHub 官方镜像
+pull: true
+
+# 默认平台
+platform: ubuntu-latest
+
+# secrets 文件路径（需自行创建）
+# secret-file: .secrets
+
+# 日志级别
+log-level: info
+
+# 容器网络模式（act 0.2.0+）
+network: bridge
+
+# 基础镜像缓存目录
+cache: true
+cache-dir: /tmp/act-cache
+
+# 内存限制
+mem: 4g
+
+# 是否使用 privileged 模式（通常 false 即可）
+privileged: false
+
+# 平台映射
+platforms:
+  ubuntu-latest: ghcr.io/catthehacker/ubuntu:act-latest
+  ubuntu-22.04: ghcr.io/catthehacker/ubuntu:act-22.04
+  windows-latest: ghcr.io/catthehacker/windows:latest
+
+# 默认 secrets（可被覆盖）
+defaults:
+  secrets:
+    DOCKER_USERNAME: local
+    DOCKER_PASSWORD: local
+    SSH_PRIVATE_KEY: ""
