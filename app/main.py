@@ -1,11 +1,11 @@
 """Flask-based CI Pipeline Demo Application"""
 
-from typing import Any, Tuple
+import os
+import platform
+from typing import Tuple
 
 from flask import Flask, Response, jsonify, request
 from flask_cors import CORS
-import os
-import platform
 
 from .logic import process_data
 
